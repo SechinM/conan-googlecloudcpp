@@ -17,7 +17,7 @@ class GooglecloudcppConan(ConanFile):
     def build(self):
         cmake = CMake(self)
 	self.run("cd google-cloud-cpp && cmake -Hsuper -Bcmake-out")
-	self.run('cd google-cloud-cpp && cmake --build cmake-out -- -j 4')
+	self.run('cd google-cloud-cpp && cmake --build cmake-out --target install')
 
     def package(self):
         self.copy("*.h", dst="include", src="google-cloud-cpp")
